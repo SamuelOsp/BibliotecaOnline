@@ -1,0 +1,14 @@
+:host { display:block; }
+.container {
+  max-width:700px;
+  margin:2.2rem auto;
+  padding:2rem;
+  background: linear-gradient(180deg,#ffffff,#fbfdff);
+  border-radius:12px;
+  box-shadow: 0 8px 28px rgba(2,6,23,0.06);
+}
+.detail-title { font-size:1.6rem; font-weight:700; margin-bottom:0.5rem; color:#0f1724; }
+.detail-row { display:flex; gap:1rem; margin:0.6rem 0; align-items:center; }
+.detail-label { width:140px; color:#6b7280; font-weight:700; }
+.detail-value { color:#111827; font-weight:600; }
+.btn-group { margin-top:1rem; display:flex; gap:0.6rem; }

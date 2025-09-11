@@ -1,0 +1,40 @@
+:host { display:block; }
+
+.container {
+  max-width: 720px;
+  margin: 2.25rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(2,6,23,0.06);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+form .full { grid-column: 1 / -1; }
+
+label { display:block; margin-bottom:0.35rem; font-weight:600; color:#111827; }
+input, select, textarea {
+  width:100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #e6edf3;
+  background: #fbfdff;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 6px 18px rgba(59,130,246,0.12);
+}
+
+.form-actions {
+  display:flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  grid-column: 1 / -1;
+}

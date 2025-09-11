@@ -1,0 +1,8 @@
+<div class="container mt-4" *ngIf="libro as l">
+  <h2>{{ l.titulo }}</h2>
+  <p><strong>Autor:</strong> {{ l.autor }}</p>
+  <p><strong>Editorial:</strong> {{ l.editorial }}</p>
+  <p><strong>Disponibilidad:</strong> {{ l.disponibilidad }}</p>
+  <a class="btn btn-primary" [routerLink]="['/libros/edit', l.id_libro]">Editar</a>
+  <a class="btn btn-secondary ms-2" routerLink="/">Volver</a>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Registro</h2>
+  <form (ngSubmit)="registrar()">
+    <div class="mb-3">
+      <label>Nombre de usuario</label>
+      <input [(ngModel)]="nombre" name="nombre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="contrasena" name="contrasena" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Rol</label>
+      <select [(ngModel)]="rol" name="rol" class="form-control">
+        <option value="usuario">Usuario</option>
+        <option value="admin">Administrador</option>
+        <option value="bibliotecario">Bibliotecario</option>
+      </select>
+    </div>
+    <div *ngIf="error" class="text-danger">{{ error }}</div>
+    <button class="btn btn-success" type="submit">Registrar</button>
+  </form>
+</div>

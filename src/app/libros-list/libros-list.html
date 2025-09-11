@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <h2>Lista de Libros</h2>
+
+  <div class="mb-3">
+    <input
+      class="form-control"
+      placeholder="Buscar libro por título o autor..."
+      [(ngModel)]="termino"
+      (keyup)="buscar()"
+    />
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Editorial</th>
+        <th>Disponibilidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.editorial }}</td>
+        <td>
+          <span class="badge {{ libro.disponibilidad }}">{{ libro.disponibilidad }}</span>
+        </td>
+        <td>
+          <a class="btn btn-primary btn-sm" [routerLink]="['/libros', libro.id_libro]">Ver</a>
+          <a class="btn btn-warning btn-sm" [routerLink]="['/libros/edit', libro.id_libro]"
+            >Editar</a
+          >
+          <button class="btn btn-danger btn-sm" (click)="delete(libro.id_libro)">Eliminar</button>
+          <button class="btn btn-info btn-sm"
+        (click)="reservar(libro.id_libro)"
+        >Reservar</button>
+
+          <button
+            class="btn btn-success btn-sm"
+            [disabled]="!libro.id_libro"
+            (click)="prestar(libro.id_libro)"
+          >
+            Prestar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

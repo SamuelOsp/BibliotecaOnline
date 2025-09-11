@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <h2>Mis Reservas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Libro</th>
+        <th>Fecha Reserva</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reservas">
+        <td>{{ r.id_reserva }}</td>
+        <td>{{ r.id_libro }}</td>
+        <td>{{ r.fecha_reserva | date:'mediumDate' }}</td>
+        <td>
+          <span class="badge" 
+                [ngClass]="{
+                  'bg-success': r.estado === 'activa',
+                  'bg-warning': r.estado === 'cancelada',
+                  'bg-secondary': r.estado === 'finalizada'
+                }">
+            {{ r.estado }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
