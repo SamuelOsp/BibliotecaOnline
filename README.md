@@ -1,137 +1,137 @@
-# 📚 Sistema de Biblioteca Online
+# 📚 Online Library System
 
-Aplicación web full-stack para la gestión integral de una biblioteca — permite administrar libros, usuarios, préstamos y reservas con autenticación basada en JWT.
+Full-stack web application for library management — allows managing books, users, loans, and reservations with JWT-based authentication.
 
-> **Problema que resuelve:** Digitaliza el flujo operativo de una biblioteca, reemplazando registros manuales con un sistema web donde los usuarios pueden buscar libros, solicitar préstamos/reservas y los administradores pueden gestionar todo el catálogo.
+> **Problem it solves:** Digitizes the operational workflow of a library, replacing manual records with a web system where users can search for books, request loans/reservations, and administrators can manage the entire catalog.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-| Capa | Tecnología |
-|------|-----------|
+| Layer | Technology |
+|-------|-----------|
 | **Frontend** | Angular 20 (standalone components) |
 | **UI** | Angular Material · Bootstrap 5 |
 | **Backend** | Node.js + Express 5 |
-| **Base de datos** | MySQL |
-| **Autenticación** | JWT (JSON Web Tokens) |
-| **Lenguajes** | TypeScript (frontend) · JavaScript (backend) |
+| **Database** | MySQL |
+| **Authentication** | JWT (JSON Web Tokens) |
+| **Languages** | TypeScript (frontend) · JavaScript (backend) |
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🔐 **Autenticación JWT** — Registro e inicio de sesión con tokens
-- 📖 **CRUD de Libros** — Crear, leer, actualizar y eliminar libros del catálogo
-- 🔍 **Búsqueda** — Buscar libros por título o autor
-- 📋 **Préstamos** — Solicitar préstamos, registrar devoluciones
-- 📌 **Reservas** — Reservar libros con límite de 5 reservas activas por usuario
-- 👤 **Perfil de usuario** — Vista del perfil con historial
-- 🛡️ **Rutas protegidas** — Angular Guards para protección de rutas
-- 🔄 **Interceptor HTTP** — Envío automático del token JWT en cada petición
+- 🔐 **JWT Authentication** — Sign up and login with tokens
+- 📖 **Book CRUD** — Create, read, update, and delete books from the catalog
+- 🔍 **Search** — Search books by title or author
+- 📋 **Loans** — Request loans, register returns
+- 📌 **Reservations** — Reserve books with a limit of 5 active reservations per user
+- 👤 **User Profile** — Profile view with history
+- 🛡️ **Protected Routes** — Angular Guards for route protection
+- 🔄 **HTTP Interceptor** — Automatic JWT token injection on every request
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 BibliotecaOnline/
 ├── backend/
-│   ├── server.js              ← Servidor Express (puerto 3000)
-│   ├── db.js                  ← Conexión a MySQL (con dotenv)
+│   ├── server.js              ← Express server (port 3000)
+│   ├── db.js                  ← MySQL connection (with dotenv)
 │   └── routes/
-│       ├── libros.js          ← CRUD de libros
-│       ├── usuarios.js        ← Registro y login
-│       ├── prestamos.js       ← Gestión de préstamos
-│       └── reservas.js        ← Gestión de reservas
+│       ├── libros.js          ← Book CRUD
+│       ├── usuarios.js        ← Registration & login
+│       ├── prestamos.js       ← Loan management
+│       └── reservas.js        ← Reservation management
 ├── src/app/
-│   ├── auth/login/            ← Componente de login
+│   ├── auth/login/            ← Login component
 │   ├── components/
-│   │   ├── perfil/            ← Perfil de usuario
-│   │   └── register/          ← Registro de usuario
-│   ├── guards/                ← Auth guard de rutas
+│   │   ├── perfil/            ← User profile
+│   │   └── register/          ← User registration
+│   ├── guards/                ← Auth route guard
 │   ├── Interceptors/          ← JWT interceptor
-│   ├── libros/                ← Búsqueda de libros
-│   ├── libros-list/           ← Listado de libros
-│   ├── libros-detail/         ← Detalle de libro
-│   ├── libros-form/           ← Formulario CRUD de libros
-│   ├── navbar/                ← Barra de navegación
-│   ├── prestamos/             ← Lista de préstamos del usuario
-│   ├── reservas/              ← Lista de reservas del usuario
-│   └── services/              ← Servicios HTTP (libros, usuarios, préstamos, reservas)
-├── .env.example               ← Plantilla de variables de entorno
+│   ├── libros/                ← Book search
+│   ├── libros-list/           ← Book listing
+│   ├── libros-detail/         ← Book detail
+│   ├── libros-form/           ← Book CRUD form
+│   ├── navbar/                ← Navigation bar
+│   ├── prestamos/             ← User loans list
+│   ├── reservas/              ← User reservations list
+│   └── services/              ← HTTP services (books, users, loans, reservations)
+├── .env.example               ← Environment variables template
 ├── package.json
 └── angular.json
 ```
 
 ---
 
-## 🚀 Instalación y Ejecución Local
+## 🚀 Getting Started
 
-### Requisitos previos
+### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
 - [Angular CLI](https://angular.dev/tools/cli) (v20+)
-- [XAMPP](https://www.apachefriends.org/) u otro servidor MySQL
+- [XAMPP](https://www.apachefriends.org/) or any MySQL server
 
-### Pasos
+### Installation
 
 ```bash
-# 1. Clona el repositorio
+# 1. Clone the repository
 git clone https://github.com/SamuelOsp/BibliotecaOnline.git
 cd BibliotecaOnline
 
-# 2. Instala las dependencias
+# 2. Install dependencies
 npm install
 
-# 3. Configura las variables de entorno
+# 3. Set up environment variables
 cp .env.example .env
-# Edita .env con tus credenciales de MySQL
+# Edit .env with your MySQL credentials
 
-# 4. Inicia MySQL desde XAMPP y crea la base de datos
-# Nombre: biblioteca_online
+# 4. Start MySQL from XAMPP and create the database
+# Database name: biblioteca_online
 
-# 5. Inicia el backend (en una terminal)
+# 5. Start the backend (in one terminal)
 node backend/server.js
 
-# 6. Inicia el frontend (en otra terminal)
+# 6. Start the frontend (in another terminal)
 ng serve
 ```
 
-| Servicio | URL |
-|----------|-----|
+| Service | URL |
+|---------|-----|
 | Frontend | `http://localhost:4200` |
 | Backend API | `http://localhost:3000` |
 
 ---
 
-## 📡 Endpoints de la API
+## 📡 API Endpoints
 
-| Método | Endpoint | Descripción |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/api/libros` | Listar todos los libros |
-| `GET` | `/api/libros/:id` | Obtener un libro por ID |
-| `GET` | `/api/libros/buscar/:termino` | Buscar libros por título/autor |
-| `POST` | `/api/libros` | Crear un libro |
-| `PUT` | `/api/libros/:id` | Actualizar un libro |
-| `DELETE` | `/api/libros/:id` | Eliminar un libro |
-| `POST` | `/api/usuarios` | Registrar usuario |
-| `POST` | `/api/usuarios/login` | Iniciar sesión |
-| `POST` | `/api/prestamos` | Crear préstamo |
-| `PUT` | `/api/prestamos/devolver/:id` | Devolver préstamo |
-| `GET` | `/api/prestamos/usuario/:id` | Préstamos por usuario |
-| `POST` | `/api/reservas` | Crear reserva |
-| `PUT` | `/api/reservas/cancelar/:id` | Cancelar reserva |
-| `GET` | `/api/reservas/usuario/:id` | Reservas por usuario |
+| `GET` | `/api/libros` | List all books |
+| `GET` | `/api/libros/:id` | Get a book by ID |
+| `GET` | `/api/libros/buscar/:term` | Search books by title/author |
+| `POST` | `/api/libros` | Create a book |
+| `PUT` | `/api/libros/:id` | Update a book |
+| `DELETE` | `/api/libros/:id` | Delete a book |
+| `POST` | `/api/usuarios` | Register user |
+| `POST` | `/api/usuarios/login` | Login |
+| `POST` | `/api/prestamos` | Create loan |
+| `PUT` | `/api/prestamos/devolver/:id` | Return loan |
+| `GET` | `/api/prestamos/usuario/:id` | Loans by user |
+| `POST` | `/api/reservas` | Create reservation |
+| `PUT` | `/api/reservas/cancelar/:id` | Cancel reservation |
+| `GET` | `/api/reservas/usuario/:id` | Reservations by user |
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-Desarrollado como proyecto académico.
+Developed as an academic project.
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia ISC.
+This project is licensed under the ISC License.
