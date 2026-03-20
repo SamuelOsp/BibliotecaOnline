@@ -128,7 +128,7 @@ ng serve
 
 ## 👨‍💻 Autor
 
-Desarrollado como proyecto académico — **Análisis de Datos II, Semestre 6**.
+Desarrollado como proyecto académico.
 
 ---
 
